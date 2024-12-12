@@ -151,7 +151,7 @@ export default function HomePage() {
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-[#F5F5F5] max-w-3xl mx-auto">
             Together, we're building a stronger Bihar through healthcare education 
-            and skill development initiatives
+            and skill development initiatives.
           </p>
           <div className="space-x-4">
             <Button className="bg-stone-400 text-[#1A1A1A] hover:bg-stone-300 transition-colors text-lg px-8 py-6">
