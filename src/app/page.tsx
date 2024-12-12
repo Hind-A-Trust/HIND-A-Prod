@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronDown, Award, Users, Linkedin, Activity, Twitter, User, Shield, CheckCircle, FileText } from "lucide-react"
+import { ChevronDown, Award, Users, Linkedin, Activity, Shield, CheckCircle, FileText } from "lucide-react"
 import { useState } from "react"
 import { Menu, X } from 'lucide-react';
 
@@ -13,12 +13,12 @@ export default function HomePage() {
   const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.9])
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
-  const donations = [
-    { name: "Tata Trusts", amount: "₹50,00,000", date: "March 2024" },
-    { name: "Anonymous Donor", amount: "₹25,00,000", date: "February 2024" },
-    { name: "Tech For Good", amount: "₹15,00,000", date: "January 2024" },
-    // Add more donations as needed
-  ]
+  // const donations = [
+  //   { name: "Tata Trusts", amount: "₹50,00,000", date: "March 2024" },
+  //   { name: "Anonymous Donor", amount: "₹25,00,000", date: "February 2024" },
+  //   { name: "Tech For Good", amount: "₹15,00,000", date: "January 2024" },
+  //   // Add more donations as needed
+  // ]
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -150,7 +150,7 @@ export default function HomePage() {
             Educate, Empower, Elevate Bihar
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-[#F5F5F5] max-w-3xl mx-auto">
-            Together, we're building a stronger Bihar through healthcare education 
+            Together, we&apos;re building a stronger Bihar through healthcare education 
             and skill development initiatives.
           </p>
           <div className="space-x-4">
@@ -328,7 +328,7 @@ export default function HomePage() {
               </span>
             </h2>
             <p className="text-xl text-stone-300 leading-relaxed">
-              While Bihar's cultural tapestry spans millennia and its people's resilience knows no bounds,
+              While Bihar&apos;s cultural tapestry spans millennia and its people&apos;s resilience knows no bounds,
               the state faces critical challenges that require immediate, systematic intervention. 
               Together, we can transform these statistics into stories of success.
             </p>
@@ -394,7 +394,7 @@ export default function HomePage() {
             className="text-center mt-16"
           >
             <p className="text-lg text-stone-400 mb-6">
-              These aren't just numbers – they represent millions of lives waiting for an opportunity to thrive.
+              These aren&apos;t just numbers, they represent millions of lives waiting for an opportunity to thrive.
             </p>
             <button className="px-8 py-4 bg-gradient-to-r from-stone-400 to-slate-200 text-[#1A1A1A] rounded-full
               hover:from-stone-300 hover:to-slate-100 transition-all duration-300 font-semibold
@@ -482,19 +482,19 @@ export default function HomePage() {
             
                     <blockquote className="text-gray-700 leading-relaxed space-y-6">
                       <p>
-                        "When I look at Bihar, I see not just challenges, but immense potential waiting to be unlocked. 
+                      &quot;When I look at Bihar, I see not just challenges, but immense potential waiting to be unlocked. 
                         Every young person deserves the opportunity to dream big and achieve bigger. This belief has 
-                        driven our mission at HIND-A from day one."
+                        driven our mission at HIND-A from day one.&quot;
                       </p>
                       <p>
-                        "Our journey began with a simple question: How can we create lasting change? The answer 
-                        lay in education and healthcare - the two pillars that can transform not just individuals, 
-                        but entire communities. Today, I'm proud to say that we've impacted over 1,000 lives, 
-                        but this is just the beginning."
+                      &quot;Our journey began with a simple question: How can we create lasting change? The answer 
+                        lay in education and healthcare, the two pillars that can transform not just individuals, 
+                        but entire communities. Today, I&apos;m proud to say that we&apos;ve impacted over 1,000 lives, 
+                        but this is just the beginning.&quot;
                       </p>
                       <p>
-                        "I invite you to join us in this transformative journey. Together, we can build a Bihar 
-                        that leads by example - in innovation, in opportunity, and in human development."
+                      &quot;I invite you to join us in this transformative journey. Together, we can build a Bihar 
+                        that leads by example - in innovation, in opportunity, and in human development.&quot;
                       </p>
                     </blockquote>
             
@@ -537,7 +537,7 @@ export default function HomePage() {
               </h2>
               <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
                 Every contribution creates ripples of transformation. Join our community of 
-                changemakers who are actively shaping Bihar's future.
+                changemakers who are actively shaping Bihar&apos;s future.
               </p>
             </motion.div>
   
@@ -624,7 +624,7 @@ export default function HomePage() {
             <div>
               <h3 className="text-2xl font-bold mb-6">HIND-A</h3>
               <p className="text-gray-400">
-                Empowering Bihar's future through education, healthcare, and skill development.
+                Empowering Bihar&apos;s future through education, healthcare, and skill development.
               </p>
             </div>
             <div>
