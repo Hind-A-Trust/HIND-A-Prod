@@ -191,7 +191,7 @@ export default function HomePage() {
               </span>
             </h2>
             <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
-              Since 2024, HIND-A has impacted over 1,000 lives through our innovative approach 
+              Since 2024, HIND-A has impacted over 100 lives through our innovative approach 
               to community development. We believe in sustainable change through education and skill enhancement.
             </p>
           </motion.div>
@@ -489,7 +489,7 @@ export default function HomePage() {
                       <p>
                       &quot;Our journey began with a simple question: How can we create lasting change? The answer 
                         lay in education and healthcare, the two pillars that can transform not just individuals, 
-                        but entire communities. Today, I&apos;m proud to say that we&apos;ve impacted over 1,000 lives, 
+                        but entire communities. Today, I&apos;m proud to say that we&apos;ve impacted over 100 lives, 
                         but this is just the beginning.&quot;
                       </p>
                       <p>
