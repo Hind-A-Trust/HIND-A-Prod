@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "HIND-A Foundation",
-  description: "Educate, Empower, Elevate Bihar",
+  title: "HIND-A Trust",
+  description: "Educate, Empower, Elevate Society",
   keywords: "Bihar, education, healthcare, skill development, community development",
   viewport: "width=device-width, initial-scale=1.0",
 };

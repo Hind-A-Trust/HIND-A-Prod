@@ -147,7 +147,7 @@ export default function HomePage() {
           className="z-20 text-center px-4 relative"
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white text-balance">
-            Educate, Empower, Elevate Communities
+            Educate, Empower, Elevate Society
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-[#F5F5F5] max-w-3xl mx-auto">
             Together, we&apos;re building a stronger Bihar through healthcare education 
