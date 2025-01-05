@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronDown, Award, Users, Linkedin, Activity, Shield, CheckCircle, FileText } from "lucide-react"
+import { Facebook, Instagram } from "lucide-react";
 import { useState } from "react"
 import { Menu, X } from 'lucide-react';
 
@@ -499,11 +500,20 @@ export default function HomePage() {
                     </blockquote>
             
                     {/* Signature Area */}
+                                        {/* Signature Area */}
                     <div className="space-y-4 pt-6">
                       <div className="flex gap-6">
                         <a href="https://www.linkedin.com/in/dr-mohsena-khalil-94678552/" 
                           className="text-gray-600 hover:text-gray-900 transition-colors">
                           <Linkedin className="w-5 h-5" />
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61571722253961&mibextid=wwXIfr&mibextid=wwXIfr" 
+                          className="text-gray-600 hover:text-gray-900 transition-colors">
+                          <Facebook className="w-5 h-5" />
+                        </a>
+                        <a href="https://www.instagram.com/hinda_charitable_trust?igsh=eGV5d2RjamhlMjNp" 
+                          className="text-gray-600 hover:text-gray-900 transition-colors">
+                          <Instagram className="w-5 h-5" />
                         </a>
                       </div>
                     </div>
