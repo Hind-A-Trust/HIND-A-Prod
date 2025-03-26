@@ -597,7 +597,7 @@ export default function HomePage() {
             <div>
               <h3 className="text-2xl font-bold mb-6">HIND-A</h3>
               <p className="text-gray-400">
-                Empowering Bihar's future through education, healthcare, and skill development.
+                Empowering Bihar&apos;s future through education, healthcare, and skill development.
               </p>
             </div>
             <div>
