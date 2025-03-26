@@ -7,19 +7,16 @@ import { ChevronDown, Award, Users, Linkedin, Activity, Shield, CheckCircle, Fil
 import { Facebook, Instagram } from "lucide-react";
 import { useState } from "react"
 import { Menu, X } from 'lucide-react';
+import { useRouter } from "next/navigation"
 
 export default function HomePage() {
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.9])
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  // const donations = [
-  //   { name: "Tata Trusts", amount: "₹50,00,000", date: "March 2024" },
-  //   { name: "Anonymous Donor", amount: "₹25,00,000", date: "February 2024" },
-  //   { name: "Tech For Good", amount: "₹15,00,000", date: "January 2024" },
-  //   // Add more donations as needed
-  // ]
+
+  const router = useRouter()
+
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -38,6 +35,19 @@ export default function HomePage() {
               />
             </Link>
 
+            {/* Mobile Menu Button - Moved inside header */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 hover:bg-gray-100 rounded-lg relative z-[1001]"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6 text-[#1A1A1A]" />
+              ) : (
+                <Menu className="w-6 h-6 text-[#1A1A1A]" />
+              )}
+            </button>
+
             {/* Desktop Navigation Only */}
             <div className="hidden md:flex items-center space-x-8">
               <nav className="space-x-8">
@@ -54,26 +64,13 @@ export default function HomePage() {
                   Contribute
                 </Link>
               </nav>
-              <Button className="bg-[#1A1A1A] text-white hover:bg-[#333333]">
+              <Button className="bg-[#1A1A1A] text-white hover:bg-[#333333]" onClick={() => router.push("/donate")}>
                 Donate Now
               </Button>
             </div>
           </div>
         </div>
       </header>
-
-      {/* Mobile Menu Button with increased z-index */}
-      <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="md:hidden p-2 hover:bg-gray-100 rounded-lg relative z-[1001]"
-        aria-label="Toggle menu"
-      >
-        {isMenuOpen ? (
-          <X className="w-6 h-6 text-[#1A1A1A]" />
-        ) : (
-          <Menu className="w-6 h-6 text-[#1A1A1A]" />
-        )}
-      </button>
 
       {/* Mobile Navigation Overlay with higher z-index and transition */}
       {isMenuOpen && (
@@ -120,7 +117,7 @@ export default function HomePage() {
               <div className="mt-6 px-4">
                 <Button
                   className="bg-[#1A1A1A] text-white hover:bg-[#333333] w-full py-3"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => router.push("/donate")}
                 >
                   Donate Now
                 </Button>
@@ -154,12 +151,14 @@ export default function HomePage() {
             Together, we&apos;re building a stronger Bihar through healthcare education 
             and skill development initiatives.
           </p>
-          <div className="space-x-4">
-            <Button className="bg-stone-400 text-[#1A1A1A] hover:bg-stone-300 transition-colors text-lg px-8 py-6">
+          <div className="flex flex-col sm:flex-row gap-4 sm:space-x-4 justify-center">
+            <Button className="bg-stone-400 text-[#1A1A1A] hover:bg-stone-300 transition-colors text-lg px-8 py-6 mb-4 sm:mb-0"
+              onClick={() => router.push("/donate")}
+            >
               Join Our Mission
             </Button>
-            <Button variant="default" className="bg-slate-200 hover:bg-slate-100 text-black text-lg px-8 py-6">
-              Learn More
+            <Button variant="default" className="bg-slate-200 hover:bg-slate-100 text-black text-lg px-8 py-6" asChild>
+              <Link href="#what-we-do">Learn More</Link>
             </Button>
           </div>
         </motion.div>
@@ -304,7 +303,7 @@ export default function HomePage() {
         </div>
       </section>
 
-{/* Bihar State Section */}
+      {/* Bihar State Section */}
       <section id="bihar" className="py-28 bg-gradient-to-b from-[#1A1A1A] to-[#222222] text-white relative overflow-hidden">
         {/* Abstract Background Pattern */}
         <div className="absolute inset-0 opacity-5">
@@ -399,7 +398,7 @@ export default function HomePage() {
             </p>
             <button className="px-8 py-4 bg-gradient-to-r from-stone-400 to-slate-200 text-[#1A1A1A] rounded-full
               hover:from-stone-300 hover:to-slate-100 transition-all duration-300 font-semibold
-              shadow-lg hover:shadow-stone-400/25">
+              shadow-lg hover:shadow-stone-400/25" onClick={() => router.push("/donate")}>
               Join Our Mission
             </button>
           </motion.div>
@@ -550,42 +549,6 @@ export default function HomePage() {
                 changemakers who are actively shaping Bihar&apos;s future.
               </p>
             </motion.div>
-  
-            {/* Recent Supporters */}
-            {/* <div className="mb-20 px-4 sm:px-6">
-              <h3 className="text-2xl font-bold text-center mb-8 sm:mb-12 text-gray-900">Recent Champions</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
-                {donations.slice(0, 6).map((donation, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: index * 0.1 }}
-                    className="group"
-                  >
-                    <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300
-                      border border-gray-100 hover:border-gray-200">
-                      <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-100 rounded-full flex items-center justify-center">
-                          <User className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-900 group-hover:text-stone-600 transition-colors text-sm sm:text-base">
-                            {donation.name}
-                          </h4>
-                          <p className="text-xs sm:text-sm text-gray-600">{donation.date}</p>
-                        </div>
-                      </div>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-xl sm:text-2xl font-bold text-stone-600">{donation.amount}</span>
-                        <span className="text-sm sm:text-base text-gray-600">contributed</span>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div> */}
-          {/* Donation Call to Action */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -599,12 +562,12 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button className="bg-white text-gray-900 hover:bg-gray-50 text-lg px-8 py-4 rounded-full
-                shadow-lg hover:shadow-xl transition-all duration-300 font-semibold">
+                shadow-lg hover:shadow-xl transition-all duration-300 font-semibold" onClick={() => router.push("/donate")}>
                 Make a Donation
               </Button>
               <Button className="bg-transparent border-2 border-white text-white hover:bg-white/10 
-                text-lg px-8 py-4 rounded-full transition-all duration-300 font-semibold">
-                Learn More
+                text-lg px-8 py-4 rounded-full transition-all duration-300 font-semibold" asChild>
+                <Link href="#what-we-do">Learn More</Link>
               </Button>
             </div>
             
@@ -630,11 +593,11 @@ export default function HomePage() {
       </section>
       <footer className="bg-[#1A1A1A] text-white py-16">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
             <div>
               <h3 className="text-2xl font-bold mb-6">HIND-A</h3>
               <p className="text-gray-400">
-                Empowering Bihar&apos;s future through education, healthcare, and skill development.
+                Empowering Bihar's future through education, healthcare, and skill development.
               </p>
             </div>
             <div>
@@ -646,7 +609,7 @@ export default function HomePage() {
                 <li><Link href="#contact" className="text-gray-400 hover:text-white">Contact</Link></li>
               </ul>
             </div>
-                        <div>
+            <div>
               <h4 className="text-lg font-bold mb-4">Contact</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>Gate No 97</li>
@@ -659,11 +622,11 @@ export default function HomePage() {
             <div>
               <h4 className="text-lg font-bold mb-4">Newsletter</h4>
               <p className="text-gray-400 mb-4">Stay updated with our latest initiatives</p>
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="bg-white/10 rounded-lg px-4 py-2 flex-1 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
+                  className="bg-white/10 rounded-lg px-4 py-2 flex-1 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 mb-2 sm:mb-0"
                 />
                 <Button className="bg-white text-[#1A1A1A] hover:bg-gray-200">
                   Subscribe
