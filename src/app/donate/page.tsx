@@ -14,33 +14,7 @@ import { Menu, X } from 'lucide-react'
 
 export default function DonationPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [selectedAmount, setSelectedAmount] = useState("500")
-  const [customAmount, setCustomAmount] = useState("")
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [phone, setPhone] = useState("")
-
-  const donationAmounts = [
-    { value: "100", label: "₹100" },
-    { value: "500", label: "₹500" },
-    { value: "1000", label: "₹1,000" },
-    { value: "5000", label: "₹5,000" },
-    { value: "10000", label: "₹10,000" },
-    { value: "custom", label: "Custom" }
-  ]
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission - integrate with payment gateway
-    console.log("Donation submitted:", {
-      amount: selectedAmount === "custom" ? customAmount : selectedAmount,
-      name,
-      email,
-      phone,
-    })
-    // Add payment gateway integration here
-  }
-
+  
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header with increased z-index */}
