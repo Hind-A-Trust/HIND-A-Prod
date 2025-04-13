@@ -60,7 +60,7 @@ export default function HomePage() {
                 <Link href="#secretary" className="text-[#333333] hover:text-[#1A1A1A] transition-colors">
                   Team
                 </Link>
-                <Link href="#contribute" className="text-[#333333] hover:text-[#1A1A1A] transition-colors">
+                <Link href="/donate" className="text-[#333333] hover:text-[#1A1A1A] transition-colors">
                   Contribute
                 </Link>
               </nav>
@@ -106,7 +106,7 @@ export default function HomePage() {
                   Team
                 </Link>
                 <Link
-                  href="#contribute"
+                  href="/donate"
                   className="block px-4 py-3 text-[#333333] hover:bg-gray-50 rounded-lg transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >

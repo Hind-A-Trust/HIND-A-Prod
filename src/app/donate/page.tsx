@@ -2,14 +2,8 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { 
   Heart, 
-  CreditCard, 
-  BadgeIndianRupee, 
-  Gift, 
   Shield, 
   CheckCircle, 
   HandHeart
@@ -89,7 +83,7 @@ export default function DonationPage() {
                 <Link href="/#secretary" className="text-[#333333] hover:text-[#1A1A1A] transition-colors">
                   Team
                 </Link>
-                <Link href="/#contribute" className="text-[#333333] hover:text-[#1A1A1A] transition-colors">
+                <Link href="/donate" className="text-[#333333] hover:text-[#1A1A1A] transition-colors">
                   Contribute
                 </Link>
               </nav>
@@ -135,7 +129,7 @@ export default function DonationPage() {
                   Team
                 </Link>
                 <Link
-                  href="/#contribute"
+                  href="/donate"
                   className="block px-4 py-3 text-[#333333] hover:bg-gray-50 rounded-lg transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -195,132 +189,40 @@ export default function DonationPage() {
       <section className="py-10 sm:py-16 md:py-20 px-4">
         <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            {/* Left Column - Form */}
+            {/* Left Column - QR Code (Replaced Donation Form) */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
-              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10 order-2 md:order-1"
+              className="bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10 order-2 md:order-1 flex flex-col items-center justify-center"
             >
-              <form onSubmit={handleSubmit}>
-                <div className="space-y-6 md:space-y-8">
-                  {/* Donation Amount */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-4 md:mb-6">
-                      <BadgeIndianRupee className="h-5 w-5 text-gray-700" />
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-900">Donation Amount</h3>
-                    </div>
+              <div className="text-center mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Scan to Donate</h3>
+                <p className="text-gray-600">Use your preferred UPI app to make a secure donation</p>
+              </div>
+              
+              <div className="relative w-full max-w-[300px] h-[300px] mx-auto mb-6">
+                <Image
+                  src="/qr_code.jpeg"
+                  alt="Donation QR Code"
+                  fill
+                  className="object-contain rounded-lg"
+                  quality={100}
+                  priority
+                />
+              </div>
 
-                    <RadioGroup 
-                      value={selectedAmount} 
-                      onValueChange={setSelectedAmount}
-                      className="grid grid-cols-2 sm:grid-cols-3 gap-3"
-                    >
-                      {donationAmounts.map((amount) => (
-                        <div key={amount.value} className="flex items-center space-x-2">
-                          <RadioGroupItem 
-                            value={amount.value} 
-                            id={`amount-${amount.value}`}
-                            className="peer sr-only"
-                          />
-                          <Label 
-                            htmlFor={`amount-${amount.value}`}
-                            className="flex-1 cursor-pointer rounded-lg border border-gray-200 p-3 sm:p-4 text-center text-sm sm:text-base
-                              peer-data-[state=checked]:border-[#1A1A1A] peer-data-[state=checked]:bg-gray-50
-                              hover:bg-gray-50 transition-all duration-200"
-                          >
-                            {amount.label}
-                          </Label>
-                        </div>
-                      ))}
-                    </RadioGroup>
-
-                    {selectedAmount === "custom" && (
-                      <div className="mt-4">
-                        <Label htmlFor="custom-amount" className="text-gray-700 mb-2 block">
-                          Enter Custom Amount (₹)
-                        </Label>
-                        <div className="relative">
-                          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">₹</span>
-                          <Input 
-                            id="custom-amount"
-                            type="number" 
-                            placeholder="Enter amount"
-                            className="pl-8"
-                            value={customAmount}
-                            onChange={(e) => setCustomAmount(e.target.value)}
-                          />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Personal Information */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Gift className="h-5 w-5 text-gray-700" />
-                      <h3 className="text-xl font-bold text-gray-900">Your Information</h3>
-                    </div>
-
-                    <div className="space-y-4">
-                      <div>
-                        <Label htmlFor="name" className="text-gray-700 mb-2 block">
-                          Full Name
-                        </Label>
-                        <Input 
-                          id="name"
-                          type="text" 
-                          placeholder="Enter your name"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          required
-                        />
-                      </div>
-                      
-                      <div>
-                        <Label htmlFor="email" className="text-gray-700 mb-2 block">
-                          Email Address
-                        </Label>
-                        <Input 
-                          id="email"
-                          type="email" 
-                          placeholder="Enter your email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          required
-                        />
-                      </div>
-                      
-                      <div>
-                        <Label htmlFor="phone" className="text-gray-700 mb-2 block">
-                          Phone Number
-                        </Label>
-                        <Input 
-                          id="phone"
-                          type="tel" 
-                          placeholder="Enter your phone number"
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Submit Button */}
-                  <Button 
-                    type="submit"
-                    className="w-full bg-[#1A1A1A] text-white hover:bg-[#333333] py-4 md:py-6 text-base md:text-lg"
-                  >
-                    <CreditCard className="mr-2 h-5 w-5" /> Proceed to Payment
-                  </Button>
-
-                  {/* Security Note */}
-                  <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-                    <Shield className="h-4 w-4" />
-                    <span>Your payment information is secure and encrypted</span>
-                  </div>
+              <div className="w-full mt-4">
+                <div className="flex items-center justify-center gap-2 text-sm text-gray-500 mb-4">
+                  <Shield className="h-4 w-4" />
+                  <span>100% secure donation process</span>
                 </div>
-              </form>
+                
+                <div className="p-4 bg-gray-50 rounded-lg text-center text-sm text-gray-600">
+                  For assistance with your donation, please contact us at
+                  <div className="font-medium mt-1">contact@hind-a.in</div>
+                </div>
+              </div>
             </motion.div>
 
             {/* Right Column - Impact Info */}
