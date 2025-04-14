@@ -32,6 +32,7 @@ export default function HomePage() {
                 width={120}
                 height={30}
                 className="md:width-[160px]"
+                draggable="false"
               />
             </Link>
 
@@ -138,6 +139,7 @@ export default function HomePage() {
             className="object-cover"
             quality={100}
             priority
+            draggable="false"
           />
         </div>
         <motion.div 

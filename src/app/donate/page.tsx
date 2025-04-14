@@ -29,6 +29,7 @@ export default function DonationPage() {
                 width={120}
                 height={30}
                 className="md:width-[160px]"
+                draggable="false"
               />
             </Link>
 
@@ -135,6 +136,7 @@ export default function DonationPage() {
             className="object-cover"
             quality={100}
             priority
+            draggable="false"
           />
         </div>
         <motion.div 
@@ -183,6 +185,7 @@ export default function DonationPage() {
                   className="object-contain rounded-lg"
                   quality={100}
                   priority
+                  draggable="false"
                 />
               </div>
 
