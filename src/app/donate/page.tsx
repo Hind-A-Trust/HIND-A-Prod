@@ -283,56 +283,6 @@ export default function DonationPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-[#1A1A1A] text-white py-16 mt-auto">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-6">HIND-A</h3>
-              <p className="text-gray-400">
-                Empowering Bihar&apos;s future through education, healthcare, and skill development.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-bold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li><Link href="/#about" className="text-gray-400 hover:text-white">About Us</Link></li>
-                <li><Link href="/#programs" className="text-gray-400 hover:text-white">Programs</Link></li>
-                <li><Link href="/#team" className="text-gray-400 hover:text-white">Team</Link></li>
-                <li><Link href="/#contact" className="text-gray-400 hover:text-white">Contact</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-bold mb-4">Contact</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Gate No 97</li>
-                <li>Banskothi, Digha Ghat</li>
-                <li>Patna 800011, Bihar</li>
-                <li>contact@hind-a.in</li>
-                <li>+91 93159 43090</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-bold mb-4">Newsletter</h4>
-              <p className="text-gray-400 mb-4">Stay updated with our latest initiatives</p>
-              <div className="flex flex-col sm:flex-row gap-2">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="bg-white/10 rounded-lg px-4 py-2 flex-1 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 mb-2 sm:mb-0"
-                />
-                <Button className="bg-white text-[#1A1A1A] hover:bg-gray-200">
-                  Subscribe
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-white/10 mt-12 pt-8 text-center text-gray-400">
-            <p>© 2024 HIND-A. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
