@@ -11,9 +11,11 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import { Menu, X } from 'lucide-react'
+import { useRouter } from "next/navigation"
 
 export default function DonationPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const router = useRouter()
   
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -62,7 +64,7 @@ export default function DonationPage() {
                   Contribute
                 </Link>
               </nav>
-              <Button className="bg-[#1A1A1A] text-white hover:bg-[#333333]">
+              <Button className="bg-[#1A1A1A] text-white hover:bg-[#333333]" onClick={()=>{router.push('/donate')}}>
                 Donate Now
               </Button>
             </div>
