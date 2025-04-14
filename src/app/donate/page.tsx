@@ -186,6 +186,20 @@ export default function DonationPage() {
                 />
               </div>
 
+              {/* Added UPI ID and Phone Number */}
+              <div className="w-full mb-6">
+                <div className="flex flex-col items-center justify-center gap-2">
+                  <div className="flex items-center justify-center gap-2 font-medium text-gray-900">
+                    <span>UPI ID:</span>
+                    <span className="text-gray-700 select-all">9315943090@upi</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 font-medium text-gray-900">
+                    <span>Phone Number:</span>
+                    <span className="text-gray-700 select-all">9315943090</span>
+                  </div>
+                </div>
+              </div>
+
               <div className="w-full mt-4">
                 <div className="flex items-center justify-center gap-2 text-sm text-gray-500 mb-4">
                   <Shield className="h-4 w-4" />
